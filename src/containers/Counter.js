@@ -8,6 +8,9 @@ import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ActionCreators from '../actions';
+import Style from '../styles'
+
+import { Icon, Button } from 'react-native-elements'
 
 class Counter extends Component {
     constructor(props){
@@ -16,28 +19,48 @@ class Counter extends Component {
 
     render() {
 
+        console.log(this);
         return (
-            <View >
+            <View style={{flex:1,flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                <Text style={styles.counterText}>{this.props.number}</Text>
+                <View style={{flexDirection:'row'}}>
+                    <Icon
+                        raised
+                        name='plus'
+                        type='font-awesome'
+                        onPress={() =>{
+                            this.props.counterIncease(this.props.number)
+                        }} />
+                    <Icon
+                        raised
+                        name='minus'
+                        type='font-awesome'
+                        onPress={() =>{
+                            this.props.counterDecease(this.props.number)
+                        }} />
+                </View>
 
             </View>
         );
     }
 }
+
+
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+    counterText : {
+        fontSize:150,
+        paddingLeft:10,
+        paddingRight:10
     }
-});
+})
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 
-function mapStateToProps(store) {
+function mapStateToProps(state) {
     return {
+        number:state.counter.number
     }
 }
 

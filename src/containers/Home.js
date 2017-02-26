@@ -63,7 +63,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 
-function mapStateToProps(store) {
+function mapStateToProps(state) {
     return {}
 }
 

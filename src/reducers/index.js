@@ -1,9 +1,14 @@
 /**
  * Created by kei on 13/2/17.
  */
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 
 import * as app from './app.reducer';
-
-export default combineReducers({...app});
+import * as counter from './counter.reducer';
+// console.log('app',app)
+// console.log('counter',counter)
+export default combineReducers({
+    ...app,
+    ...counter,
+});

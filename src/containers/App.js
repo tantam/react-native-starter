@@ -25,7 +25,7 @@ export default class App extends Component {
                            barButtonTextStyle={styles.barButtonTextStyle}
                     >
                         <Scene key="home" component={Home} initial title="Home" sceneStyle={styles.routerScene} />
-                        <Scene key="counter" component={Counter}  title="Counter" backButtonBarStyle={styles.barButtonIconStyle} />
+                        <Scene key="counter" component={Counter} title="Counter" sceneStyle={styles.routerScene}   />
                     </Scene>
                 </Router>
             </Provider>
